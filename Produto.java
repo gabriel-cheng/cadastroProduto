@@ -29,7 +29,10 @@ public class Produto {
     }
     
     public void verificar() { /* Método para verificar itens armazenados no Array */
-        
+        for(int i = 0; i < this.vetor.length; i++) {
+            System.out.println("Nome: " + this.vetor[i].nome, "\n");
+            System.out.println("Codigo: " + this.vetor[i].codigo);
+        }
     }
 
     public void comprarProduto() {
