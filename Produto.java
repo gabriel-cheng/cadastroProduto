@@ -1,53 +1,62 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Produto {
-    Produto[] vetor = new Produto[2];
-    
-    String nome;
-    int codigo;
+    ArrayList<Produto> estoque = new ArrayList<Produto>();
+    Scanner input = new Scanner(System.in);
 
-    /*
-    int codigo, estoque;
-    String descricao;
-    float preco_compra, lucro, desconto;
-    */
-    
+    int codigo, quantidade, preco_compra;
+    char descricao;
+    double lucro;
+    double desconto;
+
     
     public void cadastrarProduto() {
-        for(int i = 0; i < vetor.length; i++) {
-            vetor[i] = new Produto();
-            Scanner input = new Scanner(System.in);
+        char controle = 'n';
 
-            System.out.print("Nome..: ");
-            this.vetor[i].nome = input.next();
-            System.out.print("Codigo..: ");
-            this.vetor[i].codigo = input.nextInt();
-            
+        do {
             System.out.println();
-        }
+            
+            System.out.print("Codigo...: ");
+            codigo = input.nextInt();
+            System.out.print("Descricao...: ");
+            descricao = input.next().charAt(0);
+            
+            Produto prod = new Produto();
+            prod.codigo = codigo;
+            prod.descricao = descricao;
 
+            estoque.add(prod);
+
+            System.out.print("Inserir mais itens? S/N: ");
+            controle = input.next().charAt(0);
+        } while(controle == 's' || controle == 'S');
     }
     
-    public void verificar() { /* Método para verificar itens armazenados no Array */
-        for(int i = 0; i < this.vetor.length; i++) {
-            System.out.println("Nome: " + this.vetor[i].nome, "\n");
-            System.out.println("Codigo: " + this.vetor[i].codigo);
+    public void verificar() {
+        for(Produto i: estoque) {
+            System.out.println(i);
         }
     }
-
-    public void comprarProduto() {
-
+    
+    public void comprarProduto(int codigo, int quantidade) {
+    
     }
 
-    public void venderProduto() {
-
+    public void venderProduto(int codigo, int sabao) {
+        
     }
 
     public void precoProduto() {
 
     }
 
-    public void estoqueProduto() {
+    public void estoqueProduto(int codigo) {
+        
+    }
 
+    @Override
+    public String toString() {
+        return "Codigo: " + this.codigo + "\nDescricao: " + this.descricao;
     }
 }

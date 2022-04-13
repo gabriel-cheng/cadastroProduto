@@ -6,6 +6,5 @@ public class Programa {
 
         prod.cadastrarProduto();
         prod.verificar();
-
     }
 }
