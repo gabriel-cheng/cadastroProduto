@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
-public class Programa {
+public class App {
     public static void main(String[] args) {
         Produto prod = new Produto();
+        String user;
 
-        prod.cadastrarProduto();
-        prod.verificar();
+        prod.menu();
     }
 }
